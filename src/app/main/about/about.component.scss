@@ -1,0 +1,244 @@
+/* General Container Styles */
+.about-container {
+  background-color: #f9f9f9; /* Light gray background for a clean look */
+  padding: 40px;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-header h1 {
+  font-size: 3.5rem;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.about-header p {
+  font-size: 1.3rem;
+  color: #7f8c8d;
+  margin-top: 10px;
+}
+
+/* Section Styling */
+.mission, .team, .services, .contact-info {
+  margin-bottom: 60px;
+}
+
+h2 {
+  color: #34495e;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+h4 {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+/* Team Section Styling */
+.team {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.team-member {
+  text-align: center;
+  width: 220px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+}
+
+.team-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 3px solid #fff; /* White border for clean look */
+}
+
+.team-info h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin: 10px 0;
+}
+
+.team-info p {
+  font-size: 1rem;
+  color: #7f8c8d;
+}
+
+/* Service Section Styling */
+.service-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.service-item {
+  width: 200px;
+  text-align: center;
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.service-item h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #34495e;
+}
+
+.service-item p {
+  font-size: 1rem;
+  color: #7f8c8d;
+}
+
+/* Contact Section Styling */
+.contact-info {
+  text-align: center;
+}
+
+.contact-button {
+  padding: 15px 30px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #27ae60;
+}
+
+/* Button for more doctors and services */
+.d-flex a {
+  font-size: 1.1rem;
+  color: #fff;
+  background-color: #3498db;
+  padding: 12px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.d-flex a:hover {
+  background-color: #2980b9;
+}
+
+/* Bubble container */
+.bubble-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* Individual bubbles */
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  background: radial-gradient(circle, rgba(32, 220, 79, 0.7) 10%, rgba(3, 190, 247, 0.4) 40%, rgba(227, 15, 181, 0.5) 70%);
+  border-radius: 50%;
+  animation: floatUp 10s infinite ease-in-out, randomMove 15s infinite linear;
+  opacity: 0.8;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(115, 93, 181, 0.6);
+  filter: blur(1px);
+}
+
+/* Different sizes and starting positions */
+.bubble:nth-child(1) {
+  width: 60px;
+  height: 60px;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  left: 30%;
+  animation-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  left: 50%;
+  animation-delay: 4s;
+}
+
+.bubble:nth-child(4) {
+  width: 70px;
+  height: 70px;
+  left: 70%;
+  animation-delay: 6s;
+}
+
+.bubble:nth-child(5) {
+  width: 50px;
+  height: 50px;
+  left: 90%;
+  animation-delay: 8s;
+}
+
+/* Keyframe animation for floating up */
+@keyframes floatUp {
+  0% {
+    bottom: -50px;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    bottom: 100vh;
+    opacity: 0;
+  }
+}
+
+/* Keyframe animation for random horizontal movement */
+@keyframes randomMove {
+  0% {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  25% {
+    left: 30%;
+    transform: translateX(-50%);
+  }
+  50% {
+    left: 60%;
+    transform: translateX(-50%);
+  }
+  75% {
+    left: 80%;
+    transform: translateX(-50%);
+  }
+  100% {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

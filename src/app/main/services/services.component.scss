@@ -1,0 +1,101 @@
+.dental-services {
+    background-color: #f9f9f9; /* Soft white background for a clean look */
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c3e50; /* Dark grey for contrast */
+    margin-bottom: 10px;
+}
+
+.subheading {
+    font-size: 1.2rem;
+    color: #7f8c8d; /* Soft grey for subheading */
+    margin-bottom: 30px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Service Card */
+.service-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vw;  /* Proportional padding */
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px blue;
+}
+
+/* Service Image */
+.service-image {
+    width: 10vw; /* Width is proportional to viewport width */
+    height: 10vw; /* Height is proportional to viewport width */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2vw;  /* Adjusted for responsive scaling */
+    flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+/* Service Title */
+.service-title {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+/* Service Description */
+.service-description {
+    font-size: 1rem;
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-bottom: 2vw;  /* Adjusted for responsive scaling */
+}
+
+/* Responsive for mobile devices */
+@media (max-width: 768px) {
+    .heading {
+        font-size: 2rem;
+    }
+    .subheading {
+        font-size: 1rem;
+    }
+    .service-card {
+        padding: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .service-image {
+        width: 20vw; /* Smaller image size for mobile */
+        height: 20vw;
+    }
+}
+
+/* Responsive for even smaller devices */
+@media (max-width: 480px) {
+    .service-title {
+        font-size: 1.25rem;
+    }
+    .service-description {
+        font-size: 0.9rem;
+    }
+}

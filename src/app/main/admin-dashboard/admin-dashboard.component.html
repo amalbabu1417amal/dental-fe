@@ -1,0 +1,37 @@
+<div class="dashboard-container">
+    <h2>Admin Dashboard</h2>
+    <div class="d-flex justify-content-end">
+        <div>
+            <a routerLink="/main/doctors" class="btn btn-primary">Daily Report</a>
+        </div>
+        <div class="ms-2"> <!-- Add ms-2 to add space between the buttons -->
+            <a routerLink="/main/doctors" class="btn btn-primary">Monthly Report</a>
+        </div>
+    </div>
+    
+    
+    <div class="department-list" >
+      <div class="department-card" *ngFor="let department of departments">
+        <div class="department-info">
+          <h3>{{ department.name }}</h3>
+          <p>Bookings: {{ department.bookingCount }}</p>
+        </div>
+        <button mat-icon-button (click)="viewBookings(department)">
+          <i class="fas fa-eye"></i> <!-- Font Awesome Eye Icon -->
+        </button>
+      </div>
+    </div>
+    
+    <!-- Grid View for Bookings -->
+    <div class="booking-grid" *ngIf="selectedDepartment">
+      <h3>Bookings for {{ selectedDepartment.name }}</h3>
+      <div class="grid-container">
+        <div class="grid-item" *ngFor="let booking of selectedDepartment.bookings">
+          <p>Booking ID: {{ booking.id }}</p>
+          <p>Customer: {{ booking.customerName }}</p>
+          <p>Date: {{ booking.date | date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

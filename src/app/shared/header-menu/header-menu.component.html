@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg navbar-light sticky-header">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="../../../assets/img/dentalogo.png" alt="" width="90" height="50" class="d-inline-block align-text-top">
+        Denta Care
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
+            <a class="nav-link active" routerLink="">Home</a>
+          </li>
+          <li class="nav-item">
+            <!-- <a class="nav-link" href="#">About</a> -->
+            <a class="nav-link" routerLink="/main/about">About</a>
+          </li>
+          <li class="nav-item">
+            <!-- <a class="nav-link" href="#">Contact</a> -->
+            <a class="nav-link" routerLink="/main/service">Services</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Teeth Whitening</a></li>
+              <li><a class="dropdown-item" href="#">Root Canal</a></li>
+              <li><a class="dropdown-item" href="#">Braces</a></li>
+              <li><a class="dropdown-item" href="#">Dental Cleaning</a></li>
+            </ul>
+          </li> -->
+          <li class="nav-item">
+            <!-- <a class="nav-link" href="#">Contact</a> -->
+            <a class="nav-link" routerLink="/about">Contact</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="doctorDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Doctors
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="doctorDropdown">
+              <li><a class="dropdown-item" href="#">Dr. John Doe</a></li>
+              <li><a class="dropdown-item" href="#">Dr. Jane Smith</a></li>
+            </ul>
+          </li> -->
+          <li class="nav-item">
+            <!-- <a class="nav-link" href="#">About</a> -->
+            <a class="nav-link" routerLink="/main/doctors">Doctors</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="hospitalDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Hospital Info
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="hospitalDropdown">
+              <li><a class="dropdown-item" href="#">Location</a></li>
+              <li><a class="dropdown-item" href="#">Timings</a></li>
+              <li><a class="dropdown-item" href="#">Contact Details</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Language
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+              <li><a class="dropdown-item" href="#" (click)="setLanguage('en')">English</a></li>
+              <li><a class="dropdown-item" href="#" (click)="setLanguage('es')">Español</a></li>
+              <li><a class="dropdown-item" href="#" (click)="setLanguage('fr')">Français</a></li>
+              <!-- Add more languages here -->
+            </ul>
+            <div class="col-md-12">
+              <!-- <button type="submit" class="btn btn-primary btn-block">Book Appointment</button> -->
+              <a routerLink="/main/booking" class="btn btn-primary btn-block">Book Appointment</a>
+
+                   </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  

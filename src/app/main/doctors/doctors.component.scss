@@ -1,0 +1,186 @@
+/* General container styling */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Doctor card styling */
+.doctor-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    border-right: 3px solid #1ede1b;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 2vw;  /* Proportional padding */
+    flex-wrap: wrap; /* Ensure cards wrap on smaller screens */
+}
+
+/* Hover effect */
+.doctor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px blue;
+}
+
+/* Doctor photo */
+.doctor-photo {
+    object-fit: cover;
+    height: 10vw; /* Height is proportional to viewport width */
+    width: 10vw;  /* Width is proportional to viewport width */
+    border-radius: 50%;
+    margin-left: 2vw;  /* Relative margin */
+    flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+/* Doctor info */
+.doctor-info {
+    flex: 1;
+    padding: 2vw;  /* Proportional padding */
+}
+
+/* Doctor info heading */
+.doctor-info h4 {
+    font-size: 2rem; /* Adjusted font size for scalability */
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Doctor info paragraph */
+.doctor-info p {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Department badge */
+.department-badge {
+    font-size: 0.85rem;
+    background-color: #6c757d;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* Responsive Styling for Images and Cards */
+@media (max-width: 768px) {
+    .doctor-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .doctor-photo {
+        margin-left: 0;
+        margin-bottom: 2vw;  /* Adjusted for responsive scaling */
+        height: 20vw;
+        width: 20vw;
+    }
+
+    .doctor-info h4 {
+        font-size: 1.5rem;
+    }
+
+    .doctor-info p {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive for even smaller devices */
+@media (max-width: 480px) {
+    .doctor-info h4 {
+        font-size: 1.25rem;
+    }
+
+    .doctor-info p {
+        font-size: 0.9rem;
+    }
+
+    .department-badge {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+}
+
+/* Bubble container */
+.bubble-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* To place behind the content */
+}
+
+/* Individual bubbles */
+.bubble {
+    position: absolute;
+    bottom: -100px; /* Start below the visible area */
+    background: radial-gradient(circle, rgba(32, 220, 79, 0.7) 10%, rgba(3, 190, 247, 0.4) 40%, rgba(227, 15, 181, 0.5) 70%);
+    border-radius: 50%;
+    animation: float 10s infinite ease-in-out;
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(115, 93, 181, 0.6);
+    filter: blur(1px); /* Soft focus for a more bubble-like look */
+}
+
+/* Different sizes and starting positions */
+.bubble:nth-child(1) {
+    width: 5vw; /* Proportional size based on viewport width */
+    height: 5vw;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    width: 7vw;
+    height: 7vw;
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+    width: 9vw;
+    height: 9vw;
+    left: 50%;
+    animation-delay: 4s;
+}
+
+.bubble:nth-child(4) {
+    width: 6vw;
+    height: 6vw;
+    left: 70%;
+    animation-delay: 6s;
+}
+
+.bubble:nth-child(5) {
+    width: 4vw;
+    height: 4vw;
+    left: 90%;
+    animation-delay: 8s;
+}
+
+/* Floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-50vh);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100vh); /* Move up beyond the visible area */
+        opacity: 0;
+    }
+}

@@ -1,0 +1,121 @@
+/* General form container styling */
+.home-container {
+  min-height: 75vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: #f8f9fa;
+}
+
+.overlay {
+  width: 100%;
+}
+
+/* Row styling for layout */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Booking container styling */
+.booking-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+/* Align form groups horizontally */
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  width: 25%;
+  font-weight: bold;
+}
+
+/* Styling for select elements and inputs */
+.form-group select,
+.form-group input {
+  width: 70%;
+  padding: 8px;
+  margin-left: 10px;
+}
+
+/* Available Slots Section */
+.form-group p {
+  font-size: 14px;
+  color: #333;
+  margin-left: 10px;
+}
+
+/* Style for the search button */
+.btn-info {
+  padding: 10px 15px;
+}
+
+/* Adjust the columns to be in a row */
+.form-group.row {
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+/* Custom button row for New Registration and Existing User */
+.booking-container .form-group button {
+  width: 48%;
+  margin: 5px;
+}
+
+/* Available Slots count styling */
+.booking-container .form-group label {
+  width: 100%;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.booking-container .form-group p {
+  margin-left: 0;
+  margin-top: 5px;
+}
+.slots{
+  color: orangered;
+}
+
+.slot-am,.bg-am{
+  color: blue !important;
+}
+.slot-pm,.bg-pm{
+  color: red !important;
+}
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .home-container {
+      flex-direction: column;
+  }
+
+  .booking-container {
+      width: 100%;
+  }
+
+  .form-group {
+      flex-direction: column;
+  }
+
+  .form-group label {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+
+  .form-group select,
+  .form-group input {
+      width: 100%;
+  }
+
+  /* Adjust button layout on smaller screens */
+  .booking-container .form-group button {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+}

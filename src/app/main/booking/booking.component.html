@@ -1,0 +1,225 @@
+<div class="home-container">
+    <div class="overlay">
+        <div class="row">
+            <!-- First Row: Department, Doctor, Date, Slot, Search Button -->
+            <div class="col-md-12 booking-container">
+                <div class="form-container">
+                    <div class="form-group row">
+                        <!-- Department Selection -->
+                        <div class="col-md-3">
+                            <label for="Department">Select Department</label>
+                            <select id="Department" class="form-control" [(ngModel)]="selectedDepartment"
+                                (change)="onDepartmentSelect()" required>
+                                <option disabled selected>Select a department</option>
+                                <option *ngFor="let department of departments" [value]="department.id">{{
+                                    department.name }}</option>
+                            </select>
+                        </div>
+
+                        <!-- Doctor Selection -->
+                        <div class="col-md-3">
+                            <label for="Doctor">Select Doctor</label>
+                            <select id="Doctor" class="form-control" [(ngModel)]="selectedDoctor"
+                                (change)="onDoctorSelect()" required>
+                                <option disabled selected>Select a doctor</option>
+                                <option *ngFor="let doctor of doctors" [value]="doctor.id">{{ doctor.name }}</option>
+                            </select>
+                        </div>
+
+                        <!-- Date Selection -->
+                        <div class="col-md-2">
+                            <label for="appointmentDate">Choose a Date</label>
+                            <select id="appointmentDate" class="form-control" [(ngModel)]="selectedDate"
+                                (change)="onDateSelect()" required>
+                                <option disabled selected>Select a date</option>
+                                <option *ngFor="let date of availableDates" [value]="date">{{ date }}</option>
+                            </select>
+                        </div>
+
+                        <!-- Search Button -->
+                        <div class="col-md-2">
+                            <label>&nbsp;</label>
+                            <button type="button" class="btn btn-info form-control" (click)="onSearch()">Search</button>
+                        </div>
+
+                        <!-- Slot Selection -->
+                        <!-- Available Slots (AM/PM) -->
+                        <div class="col-md-2">
+                            <div class="form-group"
+                                *ngIf="availableSlots.am.length > 0 || availableSlots.pm.length > 0">
+                                <label for="appointmentSlot">Choose a Slot (AM/PM)</label>
+                                <select id="appointmentSlot" class="form-control" [(ngModel)]="selectedSlot" required>
+                                    <option disabled selected>Select a slot</option>
+
+                                    <!-- AM Slots -->
+                                    <option class="bg-am" *ngFor="let slot of availableSlots.am" [value]="slot">
+                                        AM Slot: {{ slot }}
+                                    </option>
+
+                                    <!-- PM Slots -->
+                                    <option class="bg-pm" *ngFor="let slot of availableSlots.pm" [value]="slot">
+                                        PM Slot: {{ slot }}
+                                    </option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row: New or Existing Registration Buttons -->
+            <div class="col-md-12">
+                <div class="form-group d-flex justify-content-between align-items-center">
+                    <!-- Select Registration Type -->
+                    <div>
+                        <label>Select</label>
+                        <div>
+                            <button class="btn btn-secondary" (click)="showNewRegistration()">New Registration</button>
+                            &nbsp;
+                            <button class="btn btn-secondary" (click)="showExistingUser()">Existing User</button>
+                        </div>
+                    </div>
+            
+                    <!-- Display Available Slots Count -->
+                    <div *ngIf="availableSlots.am.length > 0 || availableSlots.pm.length > 0" class="ml-4">
+                        <div class="form-group">
+                            <label class="slots">Available Slots</label>
+                            <div *ngIf="availableSlots.am.length > 0 || availableSlots.pm.length > 0" class="ml-4 slots">
+                                <div class="form-group d-flex justify-content-between " >
+                                    <p ><strong class="slot-am">AM Slots:</strong> {{ availableSlots.am.length }} available</p>
+                                    <p><strong class="slot-pm">PM Slots:</strong> {{ availableSlots.pm.length }} available</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- New or Existing User Form -->
+        <div class="row">
+            <div class="col-md-7">
+                <!-- New Registration Form -->
+                <div *ngIf="isNewRegistration" class="mt-2 d-flex justify-content-center align-items-center">
+                    <div class="w-75">
+                        
+                        <div class="form-group row">
+                            <label for="salutation" class="col-md-2 col-form-label">Salutation</label>
+                            <div class="col-md-3">
+                                <select id="salutation" class="form-control" [(ngModel)]="salutation" required>
+                                    <option disabled selected>Select Salutation</option>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Ms">Ms</option>
+                                </select>
+                            </div>
+                
+                            <label for="name" class="col-md-2 col-form-label">Full Name</label>
+                            <div class="col-md-6">
+                                <input type="text" id="name" class="form-control" [(ngModel)]="fullName"
+                                    placeholder="Enter your full name" required />
+                            </div>
+                        </div>
+                
+                        <div class="form-group row">
+                            <label for="gender" class="col-md-2 col-form-label">Gender</label>
+                            <div class="col-md-3">
+                                <select id="gender" class="form-control" [(ngModel)]="gender" required>
+                                    <option disabled selected>Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                
+                            <label for="dob" class="col-md-2 col-form-label">Date of Birth</label>
+                            <div class="col-md-6">
+                                <input type="date" id="dob" class="form-control" [(ngModel)]="dob" required />
+                            </div>
+                        </div>
+                
+                        <div class="form-group row">
+                            <label for="mobile" class="col-md-2 col-form-label">Mobile Number</label>
+                            <div class="col-md-6">
+                                <input type="tel" id="mobile" class="form-control" [(ngModel)]="mobile"
+                                    placeholder="Enter your mobile number" required />
+                            </div>
+                
+                            <label for="email" class="col-md-2 col-form-label">Email Address</label>
+                            <div class="col-md-6">
+                                <input type="email" id="email" class="form-control" [(ngModel)]="email"
+                                    placeholder="Enter your email" required />
+                            </div>
+                        </div>
+                
+                        <div class="form-group row">
+                            <label for="city" class="col-md-2 col-form-label">City</label>
+                            <div class="col-md-6">
+                                <input type="text" id="city" class="form-control" [(ngModel)]="city"
+                                    placeholder="Enter your city" required />
+                            </div>
+                
+                            <label for="pincode" class="col-md-2 col-form-label">Pincode</label>
+                            <div class="col-md-6">
+                                <input type="text" id="pincode" class="form-control" [(ngModel)]="pincode"
+                                    placeholder="Enter your pincode" required />
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end mb-3">
+                            <button type="submit" class="btn btn-primary">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Existing User Search Form -->
+                <div class="d-flex justify-content-center align-items-center">
+                    <div *ngIf="isExistingUser" class="row">
+                        <!-- First column for the mobile number input -->
+                        <div class="col-md-12">
+                            <div class="form-group row align-items-center">
+                                <label for="existingMobile" class="col-sm-5 col-form-label mb-0" style="white-space: nowrap;">Enter Mobile Number</label> &nbsp;
+                                <div class="col-sm-7">
+                                    <input type="tel" id="existingMobile" class="form-control" [(ngModel)]="existingMobile"
+                                        placeholder="Enter mobile number" required />
+                                </div>
+                                &nbsp;
+                                <div class="col-sm-3">
+                                    <button type="button" class="btn btn-info" (click)="onSearchExistingUser()">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                    
+                        <!-- Second column for the existing user details -->
+                        <div *ngIf="existingUser" class="col-md-9">
+                            <div class="form-group">
+                                <label for="Reg">Reg No</label>
+                                <input type="text" id="Reg" class="form-control" [(ngModel)]="fullName" disabled />
+                            </div>
+                            <div class="form-group">
+                                <label for="existingFullName">Full Name</label>
+                                <input type="text" id="existingFullName" class="form-control" [(ngModel)]="fullName" disabled />
+                            </div>
+                            <div class="form-group">
+                                <label for="existingEmail">Email Address</label>
+                                <input type="email" id="existingEmail" class="form-control" [(ngModel)]="email" disabled />
+                            </div>
+                            <div class="d-flex justify-content-end mb-3">
+                                <button type="submit" class="btn btn-primary">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+    
+        </div>
+    
+    </div>
+   
+</div>

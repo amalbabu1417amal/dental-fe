@@ -1,0 +1,11 @@
+.sticky-header {
+    position: -webkit-sticky;  /* For Safari */
+    position: sticky;
+    top: 0;  /* Sticks the header at the top of the page */
+    // background-color: #333;  /* Background color for the header */
+    // color: white;
+    padding: 10px 0;
+    width: 100%;
+    z-index: 1000;  /* Ensures the header stays above the content */
+    box-shadow: 0 4px 2px -2px gray;  /* Optional: adds a shadow to the header */
+  }

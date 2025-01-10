@@ -1,0 +1,58 @@
+.navbar {
+  background: linear-gradient(140deg, rgba(3, 94, 139, .93), rgba(0, 203, 169, .73), rgba(0, 225, 80, .04)), linear-gradient(72deg, transparent, rgba(0, 225, 117, .64));
+    background-repeat: no-repeat;
+    background-size: cover;
+  background-color: #272c61;
+  .navbar-brand {
+    font-size: 1.5rem;
+    color: whitesmoke;
+    img {
+      margin-right: 10px;
+    }
+  }
+  // .navbar-nav .nav-item .nav-link {
+  //   color:orange;
+  //   &:hover {
+  //     color: whitesmoke;
+  //   }
+  // }
+  .dropdown-menu {
+    background: transparent linear-gradient(344deg, #e7194f 0%, #ff5884 100%) 0% 0% no-repeat padding-box;
+    
+    .dropdown-item {
+      color:hsl(133, 100%, 2%);
+      &:hover {
+        background-color: whitesmoke#e7f8f5;
+        color: hsl(0, 3%, 6%);
+      }
+    }
+  }
+  // .navbar-nav .nav-item .nav-link.active {
+  //   color:red !important; /* Set your desired color */
+  // }
+/* Default navbar link color */
+.navbar-nav .nav-item .nav-link {
+  color:orange; /* Set default color for links */
+  text-decoration: none; /* Remove default underline */
+  padding-bottom: 2px; /* Optional: Adds some spacing for the underline */
+  transition: border-bottom 0.3s ease-in-out; /* Smooth transition for the underline */
+  border-bottom: 2px solid transparent; /* Default: no underline */
+}
+
+/* Underline effect on hover */
+.navbar-nav .nav-item .nav-link:hover {
+  border-bottom: 2px solid red; /* Custom underline color on hover */
+}
+
+/* Underline effect for active links */
+.navbar-nav .nav-item .nav-link.active {
+  // border-bottom: 2px solid whitesmoke; /* Different color for active link */
+  font-weight: bold; /* Optional: make active link bold */
+}
+
+}
+.btn {
+  background: linear-gradient(344deg, #e7194f 0%, #ff5884 100%);
+  border-color: #E7194F;
+  transition: all 0.3s ease-in-out;
+}
