@@ -26,7 +26,8 @@ import { InsuranceComponent } from './insurance/insurance.component';
 import { ContactComponent } from './contact/contact.component';
 import { BookingComponent } from './booking/booking.component';
 import { DoctorsComponent } from './doctors/doctors.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component'; 
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { DoctorManagementComponent } from './doctor-management/doctor-management.component'; 
 
 
 
@@ -41,7 +42,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
            ContactComponent,
            BookingComponent,
            DoctorsComponent,
-           AdminDashboardComponent
+           AdminDashboardComponent,
+           DoctorManagementComponent
   ],
   imports: [
     CommonModule,

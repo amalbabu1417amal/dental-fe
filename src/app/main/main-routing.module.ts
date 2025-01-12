@@ -8,6 +8,8 @@ import { ServicesComponent } from './services/services.component';
 import { InsuranceComponent } from './insurance/insurance.component';
 import { AboutComponent } from './about/about.component';
 import { DoctorsComponent } from './doctors/doctors.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { DoctorManagementComponent } from './doctor-management/doctor-management.component';
 
 
 const routes: Routes = [
@@ -38,7 +40,14 @@ const routes: Routes = [
       path:"about",
       component:AboutComponent
     },
-
+    {
+      path:"admin_dashboard",
+      component:AdminDashboardComponent
+    },
+    {
+      path:"doctor_management",
+      component:DoctorManagementComponent
+    },
     
   ]
   }

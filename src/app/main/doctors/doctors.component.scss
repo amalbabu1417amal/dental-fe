@@ -135,36 +135,36 @@
 
 /* Different sizes and starting positions */
 .bubble:nth-child(1) {
-    width: 5vw; /* Proportional size based on viewport width */
-    height: 5vw;
+    width: 1vw; /* Proportional size based on viewport width */
+    height: 1vw;
     left: 10%;
     animation-delay: 0s;
 }
 
 .bubble:nth-child(2) {
-    width: 4vw;
-    height: 4vw;
+    width: 1vw;
+    height: 1vw;
     left: 30%;
     animation-delay: 2s;
 }
 
 .bubble:nth-child(3) {
-    width: 3vw;
-    height: 3vw;
+    width: 1vw;
+    height: 1vw;
     left: 50%;
     animation-delay: 4s;
 }
 
 .bubble:nth-child(4) {
-    width: 5vw;
-    height: 5vw;
+    width: 1vw;
+    height: 1vw;
     left: 70%;
     animation-delay: 6s;
 }
 
 .bubble:nth-child(5) {
-    width: 4vw;
-    height: 4vw;
+    width: 1vw;
+    height: 1vw;
     left: 90%;
     animation-delay: 8s;
 }

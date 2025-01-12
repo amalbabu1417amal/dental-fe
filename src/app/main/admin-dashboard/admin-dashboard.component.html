@@ -1,37 +1,77 @@
 <div class="dashboard-container">
-    <h2>Admin Dashboard</h2>
-    <div class="d-flex justify-content-end">
-        <div>
-            <a routerLink="/main/doctors" class="btn btn-primary">Daily Report</a>
-        </div>
-        <div class="ms-2"> <!-- Add ms-2 to add space between the buttons -->
-            <a routerLink="/main/doctors" class="btn btn-primary">Monthly Report</a>
-        </div>
+  <h2>Admin Dashboard</h2>
+
+  <!-- Reports Buttons -->
+  <div class="d-flex justify-content-end mb-4">
+    <a routerLink="/main/daily-report" class="btn btn-primary me-2">Daily Booking</a>
+    <a routerLink="/main/monthly-report" class="btn btn-primary">Monthly Booking</a>
+  </div>
+
+  <!-- Department List -->
+  <div class="department-list">
+    <div class="department-card" *ngFor="let department of departments">
+      <div class="department-info">
+        <!-- Colorful Icons -->
+        <h3>
+          <i class="fas department-icon"
+             [ngClass]="{
+               'fa-smile': department.name === 'Cosmetic Dentistry',
+               'fa-tooth': department.name === 'Orthodontics',
+               'fa-tools': department.name === 'Endodontics',
+               'fa-shield-alt': department.name === 'Preventive Dentistry',
+               'fa-screwdriver-wrench': department.name === 'Implants & Restorative Dentistry',
+               'fa-syringe': department.name === 'Oral Surgery',
+               'fa-child': department.name === 'Pediatric Dentistry'
+             }"></i>
+          {{ department.name }}
+        </h3>
+        <p>Doctor: Dr. {{ department.doctor }}</p>
+        <p>Bookings: {{ department.bookingCount }}</p>
+      </div>
+      <button class="btn btn-info view-btn" (click)="viewBookings(department)">
+        <i class="fas fa-eye"></i> View
+      </button>
     </div>
+  </div>
+  <div *ngIf="selectedDepartment" class="booking-section mt-4">
+    <h3>Bookings for {{ selectedDepartment.name }}</h3>
     
-    
-    <div class="department-list" >
-      <div class="department-card" *ngFor="let department of departments">
-        <div class="department-info">
-          <h3>{{ department.name }}</h3>
-          <p>Bookings: {{ department.bookingCount }}</p>
-        </div>
-        <button mat-icon-button (click)="viewBookings(department)">
-          <i class="fas fa-eye"></i> <!-- Font Awesome Eye Icon -->
+    <!-- Show a message if no bookings available -->
+    <div *ngIf="selectedDepartment.bookings.length === 0">
+      <p>No bookings available for this doctor.</p>
+    </div>
+      <!-- Export Buttons -->
+      <div class="d-flex justify-content-end mb-2">
+        <button class="btn-adminxl btn-outline-success me-2" (click)="exportToExcel()">
+          <i class="fas fa-file-excel"></i>
+        </button>
+        <button class="btn-adminpfd btn-outline-danger" ngxPrint [printSectionId]="'printTable'"  [useExistingCss]="true"
+        [printStyle]="{ td: { border: 'solid 0.4px' } }" >
+          <i class="fas fa-file-pdf"></i> 
         </button>
       </div>
-    </div>
-    
-    <!-- Grid View for Bookings -->
-    <div class="booking-grid" *ngIf="selectedDepartment">
-      <h3>Bookings for {{ selectedDepartment.name }}</h3>
-      <div class="grid-container">
-        <div class="grid-item" *ngFor="let booking of selectedDepartment.bookings">
-          <p>Booking ID: {{ booking.id }}</p>
-          <p>Customer: {{ booking.customerName }}</p>
-          <p>Date: {{ booking.date | date }}</p>
-        </div>
-      </div>
+  
+  
+    <!-- Booking Table -->
+    <div id="printTable" *ngIf="selectedDepartment.bookings.length > 0">
+      <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+        <thead>
+          <tr style="background-color: #f4f4f4; text-align: left;">
+            <th style="border: 1px solid #000; padding: 8px;">Booking ID</th>
+            <th style="border: 1px solid #000; padding: 8px;">Customer</th>
+            <th style="border: 1px solid #000; padding: 8px;">Doctor</th>
+            <th style="border: 1px solid #000; padding: 8px;">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of selectedDepartment.bookings">
+            <td style="border: 1px solid #000; padding: 8px;">{{ booking.id }}</td>
+            <td style="border: 1px solid #000; padding: 8px;">{{ booking.customerName }}</td>
+            <td style="border: 1px solid #000; padding: 8px;">{{ booking.doctorName }}</td>
+            <td style="border: 1px solid #000; padding: 8px;">{{ booking.date | date }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   
