@@ -1,0 +1,55 @@
+/* doctor-management.component.scss */
+.container {
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .header {
+    .title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  
+    .btn {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+  
+  
+  .department-card {
+    border-radius: 16px;
+    padding: 24px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #49cded, #b8e0e5);
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .department-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .department-info {
+    margin-bottom: 16px;
+  }
+  
+  .department-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  
+  .department-info .department-icon {
+    font-size: 2rem;
+    margin-right: 8px;
+  }
+  
+  .view-btn {
+    align-self: flex-end;
+    color: #fff;
+    background-color: #007bff;
+  }

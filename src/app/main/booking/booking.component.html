@@ -153,6 +153,23 @@
                                     placeholder="Enter your email" required />
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <!-- Address Field -->
+                            <label for="mobile" class="col-md-2 col-form-label">Address</label>
+                            <div class="col-md-6">
+                                <textarea id="mobile" class="form-control" [(ngModel)]="address" placeholder="Enter your address" required></textarea>
+                            </div>
+                        
+                            <!-- District Combo Box -->
+                            <label for="district" class="col-md-2 col-form-label">District</label>
+                            <div class="col-md-6">
+                                <select id="district" class="form-control" [(ngModel)]="selectedDistrict" required>
+                                    <option value="" disabled>Select your district</option>
+                                    <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        
                 
                         <div class="form-group row">
                             <label for="city" class="col-md-2 col-form-label">City</label>

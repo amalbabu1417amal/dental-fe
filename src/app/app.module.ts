@@ -16,6 +16,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { HomeMainComponent } from './home-main/home-main.component';
 
+import { MatCardModule } from '@angular/material/card';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,7 @@ import { HomeMainComponent } from './home-main/home-main.component';
     MatIconModule,
     CommonModule,
     HttpClientModule,
-    
+    MatCardModule
 
   ],
   providers: [

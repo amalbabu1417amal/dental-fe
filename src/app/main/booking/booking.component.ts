@@ -10,6 +10,8 @@ export class BookingComponent implements OnInit {
   selectedDoctor: any = '';
   selectedDate: any = '';
   selectedSlot: any;
+  selectedDistrict: string = '';
+  address:any;
   departments = [
     { id: '1', name: 'Cosmetic Dentistry' },
     { id: '2', name: 'Orthodontics' },
@@ -102,4 +104,21 @@ export class BookingComponent implements OnInit {
   onSubmit() {
     alert('Appointment booked successfully!');
   }
+  districts: string[] = [
+    'Thiruvananthapuram',
+    'Kollam',
+    'Pathanamthitta',
+    'Alappuzha',
+    'Kottayam',
+    'Idukki',
+    'Ernakulam',
+    'Thrissur',
+    'Palakkad',
+    'Malappuram',
+    'Kozhikode',
+    'Wayanad',
+    'Kannur',
+    'Kasaragod'
+  ];
+ 
 }
